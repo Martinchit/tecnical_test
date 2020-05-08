@@ -1,0 +1,26 @@
+[
+  {
+    "errorCode": 504,
+    "errorType": "Timeout Error",
+    "errorMessage": "Gateway Timeout",
+    "stocks": [
+      "11 HK"
+    ]
+  },
+  {
+    "errorCode": 500,
+    "errorType": "Internal Server Error",
+    "errorMessage": "Unable to fulfill the order request",
+    "stocks": [
+      "5 HK"
+    ]
+  },
+  {
+    "errorCode": 403,
+    "errorType": "Request Error",
+    "errorMessage": "Forbidden",
+    "stocks": [
+      "388 HK"
+    ]
+  }
+]

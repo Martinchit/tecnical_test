@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrdersBasket renders correctly 1`] = `
+<styled.div>
+  <Component
+    title="Orders Basket"
+  />
+  <Component
+    bookButtonDisable={true}
+    onBookButtonClickHandler={[Function]}
+    onRemoveButtonClickHandler={[Function]}
+    removeButtonDisable={true}
+  />
+  <styled.div
+    margin="2% 0%"
+  >
+    <Component
+      onCancelButtonClickHandler={[Function]}
+      onExecutionModeSelectHandler={[Function]}
+      onOrderPriceChangeHandler={[Function]}
+      onSelectCheckClickHandler={[Function]}
+      onShareAmountChangeHandler={[Function]}
+      orders={
+        Array [
+          Object {
+            "bloombergTickerLocal": "testTicker",
+            "currency": "HKD",
+            "id": 1,
+            "orderId": "9cc4ca45-b42b-462d-a8aa-931e6041cfcb",
+            "selected": false,
+            "side": "Buy",
+            "status": "Not Ready",
+            "stockId": "testID",
+          },
+        ]
+      }
+    />
+  </styled.div>
+</styled.div>
+`;

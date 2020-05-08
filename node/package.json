@@ -1,0 +1,60 @@
+{
+  "name": "web-api-node",
+  "version": "1.0.0",
+  "description": "Web API for Execution System",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "lint": "eslint --fix ./ --ext .js",
+    "test": "jest --collectCoverage",
+    "seed-data": "node_modules/.bin/sequelize db:seed:all"
+  },
+  "author": "Martin Chin",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.17.1",
+    "pg-hstore": "^2.3.3",
+    "require-dir": "^1.2.0",
+    "sequelize": "^5.21.3",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/runtime": "^7.8.3",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "prettier": "1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testRegex": "((\\.|/*.)(test))\\.js?$",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/database/",
+      "/coverage/"
+    ],
+    "collectCoverageFrom": [
+      "./**/*.{js,js}"
+    ]
+  }
+}

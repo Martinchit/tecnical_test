@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableContainer renders correctly 1`] = `
+<ForwardRef
+  className="sc-AxjAm igBWVW"
+/>
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StockList renders correctly 1`] = `
+<Fragment>
+  <Component
+    title="Stock List"
+  />
+  <Component
+    buttonsDisable={true}
+    isStocksFiltered={false}
+    onClearButtonClickHandler={[Function]}
+    onSearchButtonClickHandler={[Function]}
+    onSearchValueChangeHandler={[Function]}
+    searchValue=""
+  />
+  <styled.div
+    margin="2% 0%"
+  >
+    <Component />
+  </styled.div>
+</Fragment>
+`;

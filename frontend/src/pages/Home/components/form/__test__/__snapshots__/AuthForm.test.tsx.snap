@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthForm renders correctly 1`] = `
+<styled.div>
+  <Form
+    inline={false}
+  >
+    <FormGroup>
+      <FormLabel
+        column={false}
+        srOnly={false}
+      >
+        Email
+      </FormLabel>
+      <FormControl
+        name="email"
+        onChange={[Function]}
+        placeholder="Enter Email"
+        type="email"
+        value="email"
+      />
+    </FormGroup>
+    <FormGroup>
+      <FormLabel
+        column={false}
+        srOnly={false}
+      >
+        Password
+      </FormLabel>
+      <FormControl
+        name="password"
+        onChange={[Function]}
+        placeholder="Enter Password"
+        type="password"
+        value="password"
+      />
+    </FormGroup>
+    <styled.div
+      margin="10% 0 0 0"
+    >
+      <Button
+        active={false}
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+        variant="primary"
+      >
+        Submit
+      </Button>
+    </styled.div>
+  </Form>
+</styled.div>
+`;

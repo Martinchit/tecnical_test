@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderContainer renders correctly 1`] = `
+<Styled(styled.div)>
+  <Styled(Button)
+    disabled={true}
+    onClick={[MockFunction]}
+    variant="primary"
+  >
+    Remove
+  </Styled(Button)>
+  <Styled(Button)
+    disabled={true}
+    onClick={[MockFunction]}
+    variant="primary"
+  >
+    Book
+  </Styled(Button)>
+</Styled(styled.div)>
+`;

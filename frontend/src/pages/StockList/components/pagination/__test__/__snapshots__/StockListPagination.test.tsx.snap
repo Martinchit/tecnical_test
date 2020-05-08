@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert renders correctly 1`] = `
+<ForwardRef>
+  <First
+    onClick={[Function]}
+  />
+  <PageItem
+    active={true}
+    activeLabel="(current)"
+    disabled={false}
+    key="1"
+    onClick={[Function]}
+  >
+    1
+  </PageItem>
+  <PageItem
+    active={false}
+    activeLabel="(current)"
+    disabled={false}
+    key="2"
+    onClick={[Function]}
+  >
+    2
+  </PageItem>
+  <PageItem
+    active={false}
+    activeLabel="(current)"
+    disabled={false}
+    key="3"
+    onClick={[Function]}
+  >
+    3
+  </PageItem>
+  <PageItem
+    active={false}
+    activeLabel="(current)"
+    disabled={false}
+    key="4"
+    onClick={[Function]}
+  >
+    4
+  </PageItem>
+  <PageItem
+    active={false}
+    activeLabel="(current)"
+    disabled={false}
+    key="5"
+    onClick={[Function]}
+  >
+    5
+  </PageItem>
+  <Ellipsis
+    onClick={[Function]}
+  />
+  <PageItem
+    active={false}
+    activeLabel="(current)"
+    disabled={false}
+    onClick={[Function]}
+  >
+    10
+  </PageItem>
+  <Last
+    onClick={[Function]}
+  />
+</ForwardRef>
+`;

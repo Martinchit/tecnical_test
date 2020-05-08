@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StockListHeader renders correctly 1`] = `
+<Styled(styled.div)>
+  <Styled(FormControl)
+    onChange={[Function]}
+    placeholder="Search Stock by Stock Code"
+    value="test"
+  />
+  <Styled(Button)
+    disabled={false}
+    onClick={[MockFunction]}
+    variant="primary"
+  >
+    Search
+  </Styled(Button)>
+  <Styled(Button)
+    disabled={true}
+    onClick={[MockFunction]}
+    variant="warning"
+  >
+    Clear
+  </Styled(Button)>
+</Styled(styled.div)>
+`;

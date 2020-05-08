@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableDropdownButton renders correctly 1`] = `
+<DropdownToggle
+  className="sc-AxjAm jSQqsX"
+/>
+`;

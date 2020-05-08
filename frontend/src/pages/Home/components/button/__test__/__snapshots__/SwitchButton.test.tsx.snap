@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SwitchButton renders correctly 1`] = `
+<styled.div
+  margin="10px 0"
+>
+  <Styled(Button)
+    id="change_auth_type_button"
+    onClick={[MockFunction]}
+    variant="light"
+  >
+    Change to Sign Up
+  </Styled(Button)>
+</styled.div>
+`;

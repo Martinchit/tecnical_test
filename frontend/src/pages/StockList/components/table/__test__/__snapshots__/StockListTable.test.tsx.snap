@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StockListTable renders correctly 1`] = `
+<ForwardRef
+  responsive={true}
+>
+  <thead>
+    <tr>
+      <styled.th>
+        Stock Code
+      </styled.th>
+      <styled.th>
+        Market Price
+      </styled.th>
+      <styled.th>
+        Currency
+      </styled.th>
+      <styled.th>
+        Actions
+      </styled.th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <styled.td>
+        testOne
+      </styled.td>
+      <styled.td>
+        100
+      </styled.td>
+      <styled.td>
+        HKD
+      </styled.td>
+      <styled.td>
+        <Styled(Button)
+          onClick={[Function]}
+          variant="primary"
+        >
+          Buy
+        </Styled(Button)>
+        <Styled(Button)
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Sell
+        </Styled(Button)>
+      </styled.td>
+    </tr>
+    <tr>
+      <styled.td>
+        testTwo
+      </styled.td>
+      <styled.td>
+        200
+      </styled.td>
+      <styled.td>
+        HKD
+      </styled.td>
+      <styled.td>
+        <Styled(Button)
+          onClick={[Function]}
+          variant="primary"
+        >
+          Buy
+        </Styled(Button)>
+        <Styled(Button)
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Sell
+        </Styled(Button)>
+      </styled.td>
+    </tr>
+  </tbody>
+</ForwardRef>
+`;

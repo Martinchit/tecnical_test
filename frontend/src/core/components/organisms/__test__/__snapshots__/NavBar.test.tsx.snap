@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar renders correctly 1`] = `
+<Navbar
+  bg="dark"
+  collapseOnSelect={true}
+  expand="lg"
+  variant="dark"
+>
+  <NavbarBrand
+    as={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "displayName": "Link",
+        "propTypes": Object {
+          "innerRef": [Function],
+          "onClick": [Function],
+          "replace": [Function],
+          "target": [Function],
+          "to": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    to="/"
+  >
+    <styled.p
+      fontColor="#fff"
+      fontSize={1.5}
+      fontWeight="bold"
+    >
+      Execution System
+    </styled.p>
+  </NavbarBrand>
+</Navbar>
+`;

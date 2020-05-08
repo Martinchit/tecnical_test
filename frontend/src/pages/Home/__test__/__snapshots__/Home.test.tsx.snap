@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders correctly 1`] = `
+<styled.div>
+  <Component
+    title="Sign Up"
+  />
+  <Component
+    authError=""
+    authType="Sign Up"
+    confirmPassword=""
+    email=""
+    formError=""
+    onConfirmPasswordChange={[Function]}
+    onEmailChange={[Function]}
+    onFormSubmit={[Function]}
+    onPasswordChange={[Function]}
+    password=""
+  />
+  <Component
+    authType="Sign Up"
+    onClick={[Function]}
+  />
+</styled.div>
+`;

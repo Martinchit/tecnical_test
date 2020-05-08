@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderButton renders correctly 1`] = `
+<Button
+  active={false}
+  className="sc-AxjAm dhIUPC"
+  disabled={false}
+  type="button"
+  variant="primary"
+/>
+`;

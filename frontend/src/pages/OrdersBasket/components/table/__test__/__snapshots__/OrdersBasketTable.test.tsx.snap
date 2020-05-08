@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrdersBasketTable renders correctly 1`] = `
+<Styled(Component)
+  responsive={true}
+>
+  <thead>
+    <tr>
+      <styled.th />
+      <styled.th>
+        Status
+      </styled.th>
+      <styled.th>
+        Side
+      </styled.th>
+      <styled.th>
+        Stock Code
+      </styled.th>
+      <styled.th>
+        Execution Code
+      </styled.th>
+      <styled.th>
+        Order Price
+      </styled.th>
+      <styled.th>
+        Amount (Shares)
+      </styled.th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <styled.td>
+        <FormCheck
+          checked={false}
+          disabled={false}
+          inline={false}
+          isInvalid={false}
+          isValid={false}
+          onChange={[Function]}
+          title=""
+          type="checkbox"
+        />
+      </styled.td>
+      <styled.td>
+        <Component
+          orderStatus="Not Ready"
+        />
+      </styled.td>
+      <styled.td>
+        Buy
+      </styled.td>
+      <styled.td>
+        testTicker
+      </styled.td>
+      <styled.td>
+        <Component
+          disabled={false}
+          dropdownID="1_Buy_mode_dropdown"
+          onSelect={[Function]}
+        />
+      </styled.td>
+      <styled.td>
+        <InputGroup>
+          <Styled(FormControl)
+            aria-describedby="1_Buy_input_append"
+            disabled={false}
+            onChange={[Function]}
+            type="number"
+            value=""
+          />
+          <InputGroupAppend
+            id="1_Buy_input_append"
+          >
+            <InputGroupText>
+              HKD
+            </InputGroupText>
+          </InputGroupAppend>
+        </InputGroup>
+      </styled.td>
+      <styled.td>
+        <Styled(FormControl)
+          disabled={false}
+          onChange={[Function]}
+          type="number"
+          value=""
+        />
+      </styled.td>
+    </tr>
+  </tbody>
+</Styled(Component)>
+`;

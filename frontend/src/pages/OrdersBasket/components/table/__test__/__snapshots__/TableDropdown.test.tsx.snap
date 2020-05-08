@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableDropdown renders correctly 1`] = `
+<Dropdown
+  navbar={false}
+  onSelect={[Function]}
+>
+  <Styled(DropdownToggle)
+    className="pull-right"
+    disabled={false}
+    id="testDropdown"
+    variant="light"
+  />
+  <DropdownMenu
+    alignRight={false}
+    flip={true}
+  >
+    <DropdownItem
+      as={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "SafeAnchor",
+          "render": [Function],
+        }
+      }
+      disabled={false}
+      eventKey="0"
+      key="Market"
+    >
+      Market
+    </DropdownItem>
+    <DropdownItem
+      as={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "displayName": "SafeAnchor",
+          "render": [Function],
+        }
+      }
+      disabled={false}
+      eventKey="1"
+      key="Limit"
+    >
+      Limit
+    </DropdownItem>
+  </DropdownMenu>
+</Dropdown>
+`;

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageTitle renders correctly 1`] = `
+<styled.div
+  flexDirection="column"
+>
+  <styled.p
+    fontSize={2.5}
+    fontWeight="bold"
+  >
+    Test
+  </styled.p>
+</styled.div>
+`;
