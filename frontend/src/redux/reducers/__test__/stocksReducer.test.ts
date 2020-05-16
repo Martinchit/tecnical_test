@@ -16,7 +16,7 @@ describe('stocksReducer', () => {
   });
 
   it('should handle searchStocks', () => {
-    const action = searchStocks('test', token);
+    const action = searchStocks('test', 1, token);
     expect(stocksReducer(undefined, action)).toEqual({ ...initialState, loading: true });
   });
 
