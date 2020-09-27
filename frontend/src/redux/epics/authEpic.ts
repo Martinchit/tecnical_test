@@ -2,7 +2,7 @@ import { Epic } from 'redux-observable';
 import { from, of } from 'rxjs';
 import { mergeMap, filter, map, catchError } from 'rxjs/operators';
 import { ActionType, isActionOf } from 'typesafe-actions';
-import * as actions from '../actions';
+import { actions } from '../actions';
 import { RootState } from '../reducers';
 import { signUp, logIn } from '../services/authService';
 

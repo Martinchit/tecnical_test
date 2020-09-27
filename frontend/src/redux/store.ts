@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
 import { ActionType } from 'typesafe-actions';
 
-import * as actions from './actions';
+import { actions } from './actions';
 import epics from './epics';
 import reducers, { RootState } from './reducers';
 
@@ -15,7 +15,11 @@ declare global {
   }
 }
 
-const epicMiddleware = createEpicMiddleware<ActionsType, ActionsType, RootState>();
+const epicMiddleware = createEpicMiddleware<
+ActionsType,
+ActionsType,
+RootState
+>();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Create store

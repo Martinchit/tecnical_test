@@ -1,7 +1,11 @@
 import axios, { AxiosStatic } from 'axios';
 
 import { postStockOrder } from '../ordersService';
-import { OrderSide, OrderStatus, OrderExecutionMode } from '../../../types/types';
+import {
+  OrderSide,
+  OrderStatus,
+  OrderExecutionMode,
+} from '../../../types/types';
 
 interface AxiosMock extends AxiosStatic {
   mockImplementation: Function;
@@ -12,7 +16,7 @@ jest.mock('axios');
 
 describe('orderService', () => {
   const orderId = '9cc4ca45-b42b-462d-a8aa-931e6041cfcb';
-  const orderPrice = 100
+  const orderPrice = 100;
   const mockedAxios = axios as AxiosMock;
   const token = 'testToken';
   const stockOrder = {
@@ -26,8 +30,8 @@ describe('orderService', () => {
     executionMode: 'Market' as OrderExecutionMode,
     shareAmount: 100,
     orderPrice: 100,
-    orderId
-  }
+    orderId,
+  };
 
   it('handles postStockOrder for order with Market as executionMode', (done) => {
     mockedAxios.mockImplementation(() => {
@@ -54,7 +58,7 @@ describe('orderService', () => {
         },
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
       expect(d).toBe(orderPrice);
       mockedAxios.mockRestore();
@@ -88,7 +92,7 @@ describe('orderService', () => {
         },
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
       expect(d).toBe(orderPrice);
       mockedAxios.mockRestore();

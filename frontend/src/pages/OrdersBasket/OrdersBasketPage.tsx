@@ -12,7 +12,10 @@ const mapStateToProps = (state: RootStateType) => ({
   sessionTimeout: state.auth.sessionTimeout,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<ActionsType>, props: OwnProps) => ({
+const mapDispatchToProps = (
+  dispatch: Dispatch<ActionsType>,
+  props: OwnProps
+) => ({
   removeStockInOrderAction: () => dispatch(actions.removeStockInOrder()),
   selectStockInOrderAction: (orderId: string) =>
     dispatch(actions.selectStockInOrder(orderId)),

@@ -81,7 +81,11 @@ describe('Home', () => {
     const confirmPassword = '1234';
     const wrapper = shallow(<Home {...props} />);
     wrapper.setState({ email, password });
-    wrapper.find(AuthForm).first().props().onConfirmPasswordChange(confirmPassword);
+    wrapper
+      .find(AuthForm)
+      .first()
+      .props()
+      .onConfirmPasswordChange(confirmPassword);
     const stockListWrapper = wrapper.instance() as Home;
     await waitForAsync();
     expect(stockListWrapper.state.password).toBe(password);

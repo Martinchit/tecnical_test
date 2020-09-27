@@ -23,8 +23,8 @@ describe('orderService', () => {
       bloombergTickerLocal: 'testTicker',
       name: 'testName',
       country: 'testCountry',
-      price: 100
-    }
+      price: 100,
+    },
   ];
 
   it('handles getStocks correctly', (done) => {
@@ -47,7 +47,7 @@ describe('orderService', () => {
         },
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
       expect(d).toStrictEqual(stocks);
       mockedAxios.mockRestore();
@@ -73,11 +73,11 @@ describe('orderService', () => {
         url: '/stock/search',
         params: {
           query,
-          page
+          page,
         },
         headers: {
           Authorization: `Bearer ${token}`,
-        }
+        },
       });
       expect(d).toStrictEqual(stocks);
       mockedAxios.mockRestore();

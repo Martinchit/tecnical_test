@@ -9,7 +9,10 @@ const mapStateToProps = (state: RootStateType) => ({
   authError: state.auth.error,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<ActionsType>, props: OwnProps) => ({
+const mapDispatchToProps = (
+  dispatch: Dispatch<ActionsType>,
+  props: OwnProps
+) => ({
   logInAction: (email, password) => dispatch(actions.logIn(email, password)),
   signUpAction: (email, password) => dispatch(actions.signUp(email, password)),
 });

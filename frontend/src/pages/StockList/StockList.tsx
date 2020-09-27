@@ -8,7 +8,12 @@ import { PageTitle } from '../../core/components/molecules/PageTitle';
 import { FlexBox } from '../../core/components/atoms/FlexBox';
 import { Spinner } from '../../core/components/molecules/Spinner';
 import { Alert } from '../../core/components/atoms/Alert';
-import { OrderSide, Stock, StockOrder, StockListAlert } from '../../types/types';
+import {
+  OrderSide,
+  Stock,
+  StockOrder,
+  StockListAlert,
+} from '../../types/types';
 
 interface StockListState {
   currentPage: number;
@@ -73,10 +78,13 @@ export class StockList extends React.Component<StockListProps, StockListState> {
       headers,
     })
       .then((res) => {
-        const { totalPages } = res['data'];
+        const { totalPages } = res.data;
         const { getStocksAction, searchStocksAction } = this.props;
         const { currentPage } = this.state;
-        this.setState({ totalPages: totalPages + 1, getTotalPagesLoading: false });
+        this.setState({
+          totalPages: totalPages + 1,
+          getTotalPagesLoading: false,
+        });
         if (query) {
           this.setState({ stocksFiltered: true });
           searchStocksAction(query, currentPage, token);
@@ -88,7 +96,10 @@ export class StockList extends React.Component<StockListProps, StockListState> {
       .catch((errorRes) => {
         const { error } = errorRes;
         console.error(error);
-        this.setState({ getTotalPagesError: true, getTotalPagesLoading: false });
+        this.setState({
+          getTotalPagesError: true,
+          getTotalPagesLoading: false,
+        });
       });
   };
 
@@ -129,7 +140,7 @@ export class StockList extends React.Component<StockListProps, StockListState> {
 
   onSearchButtonClickHandler = () => {
     const { searchValue } = this.state;
-     this.setState({ alert: {} }, () => {
+    this.setState({ alert: {} }, () => {
       this.getStocksTotalPages(searchValue);
     });
   };
@@ -152,7 +163,7 @@ export class StockList extends React.Component<StockListProps, StockListState> {
     } = this.state;
     const { loading, stocks } = this.props;
     return (
-      <React.Fragment>
+      <>
         <PageTitle title="Stock List" />
         <StockListHeader
           searchValue={searchValue}
@@ -168,7 +179,7 @@ export class StockList extends React.Component<StockListProps, StockListState> {
           ) : getTotalPagesError ? (
             <Alert variant="danger">Network error. Please refresh!</Alert>
           ) : (
-            <React.Fragment>
+            <>
               <StockListTable
                 alert={alert}
                 stocks={stocks}
@@ -183,10 +194,10 @@ export class StockList extends React.Component<StockListProps, StockListState> {
                   }
                 />
               </FlexBox>
-            </React.Fragment>
+            </>
           )}
         </FlexBox>
-      </React.Fragment>
+      </>
     );
   }
 }

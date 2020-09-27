@@ -95,7 +95,13 @@ export class Home extends React.Component<HomeProps, HomeState> {
   };
 
   render() {
-    const { email, password, confirmPassword, authType, formError } = this.state;
+    const {
+      email,
+      password,
+      confirmPassword,
+      authType,
+      formError,
+    } = this.state;
     const { authError } = this.props;
     return (
       <FlexBox>
@@ -112,7 +118,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
           formError={formError}
           authError={authError}
         />
-        <SwitchButton authType={authType} onClick={this.onAuthTypeChangeHandler} />
+        <SwitchButton
+          authType={authType}
+          onClick={this.onAuthTypeChangeHandler}
+        />
       </FlexBox>
     );
   }

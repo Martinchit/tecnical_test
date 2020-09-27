@@ -63,7 +63,10 @@ describe('OrdersBasketTable', () => {
     const wrapper = shallow(<OrdersBasketTable {...props} />);
     wrapper.find(TableDropdown).first().simulate('select', optionId);
     expect(props.onExecutionModeSelectHandler).toHaveBeenCalled();
-    expect(props.onExecutionModeSelectHandler).toHaveBeenCalledWith(0, optionId);
+    expect(props.onExecutionModeSelectHandler).toHaveBeenCalledWith(
+      0,
+      optionId
+    );
     restoreMock();
   });
 

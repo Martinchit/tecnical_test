@@ -1,55 +1,11 @@
-import {
-  getStocks,
-  getStocksSuccess,
-  getStocksError,
-  searchStocks,
-} from './stocksActions';
+import * as stocksActions from './stocksActions';
 
-import {
-  addStockInOrder,
-  removeStockInOrder,
-  selectStockInOrder,
-  unselectStockInOrder,
-  updateStockOrderStatus,
-  updateStockOrderExecutionMode,
-  updateStockOrderOrderPrice,
-  updateStockOrderShareAmount,
-  placeStockOrder,
-  placeStockOrderSuccess,
-  placeStockOrderError,
-  acknowledgeStockOrderError,
-} from './ordersActions';
+import * as ordersActions from './ordersActions';
 
-import {
-  logIn,
-  signUp,
-  authSucceed,
-  authFail,
-  logOut,
-  sessionTimeout,
-} from './authActions';
+import * as authActions from './authActions';
 
-export {
-  getStocks,
-  getStocksSuccess,
-  getStocksError,
-  searchStocks,
-  addStockInOrder,
-  removeStockInOrder,
-  selectStockInOrder,
-  unselectStockInOrder,
-  updateStockOrderStatus,
-  updateStockOrderExecutionMode,
-  updateStockOrderOrderPrice,
-  updateStockOrderShareAmount,
-  placeStockOrder,
-  placeStockOrderSuccess,
-  placeStockOrderError,
-  acknowledgeStockOrderError,
-  logIn,
-  signUp,
-  authSucceed,
-  authFail,
-  logOut,
-  sessionTimeout,
+export const actions = {
+  ...stocksActions,
+  ...ordersActions,
+  ...authActions,
 };

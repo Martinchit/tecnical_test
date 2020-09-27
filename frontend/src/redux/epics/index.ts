@@ -4,6 +4,10 @@ import FetchStockEpic from './stocksEpic';
 import PostStockOrderEpic from './ordersEpic';
 import AuthEpic from './authEpic';
 
-const epics = combineEpics(...FetchStockEpic, ...PostStockOrderEpic, ...AuthEpic);
+const epics = combineEpics(
+  ...FetchStockEpic,
+  ...PostStockOrderEpic,
+  ...AuthEpic
+);
 
 export default epics;

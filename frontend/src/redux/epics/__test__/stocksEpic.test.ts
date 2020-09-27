@@ -1,9 +1,12 @@
 import axios, { AxiosStatic } from 'axios';
 import { ActionsObservable, StateObservable } from 'redux-observable';
-import { Subject } from "rxjs";
+import { Subject } from 'rxjs';
 
 import { FetchStockEpic, SearchStockEpic } from '../stocksEpic';
-import { GET_STOCKS_SUCCESS, GET_STOCKS_ERROR } from '../../constants/stocksConstant';
+import {
+  GET_STOCKS_SUCCESS,
+  GET_STOCKS_ERROR,
+} from '../../constants/stocksConstant';
 import { SESSION_TIME_OUT } from '../../constants/authConstant';
 import { getStocks, searchStocks } from '../../actions/stocksActions';
 
@@ -29,14 +32,14 @@ describe('stocksEpic', () => {
       bloombergTickerLocal: 'testTicker',
       name: 'testName',
       country: 'testCountry',
-      price: 100
-    }
+      price: 100,
+    },
   ];
   const errorResponse = {
     type: 'testError',
     description: 'testError',
-    code: 500
-  }
+    code: 500,
+  };
 
   const mockSuccess = () => {
     mockedAxios.mockImplementation(() => {
@@ -46,15 +49,17 @@ describe('stocksEpic', () => {
         },
       });
     });
-  }
+  };
 
   const mockFail = () => {
-    mockedAxios.mockImplementation(() => Promise.reject({ response: { data : errorResponse } }));
-  }
+    mockedAxios.mockImplementation(() =>
+      Promise.reject({ response: { data: errorResponse } })
+    );
+  };
 
   const restoreMock = () => {
     mockedAxios.mockRestore();
-  }
+  };
   it('handles SearchStockEpic success case', async () => {
     const query = 'test';
     mockSuccess();
@@ -76,12 +81,12 @@ describe('stocksEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: GET_STOCKS_SUCCESS,
-      payload: stocks
-    })
+      payload: stocks,
+    });
     restoreMock();
   });
 
@@ -105,14 +110,14 @@ describe('stocksEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: GET_STOCKS_ERROR,
       payload: {
-        ...errorResponse
-      }
-    })
+        ...errorResponse,
+      },
+    });
     restoreMock();
   });
 
@@ -120,9 +125,11 @@ describe('stocksEpic', () => {
     const errorResponse = {
       type: 'testError',
       description: 'testError',
-      code: 401
-    }
-    mockedAxios.mockImplementation(() => Promise.reject({ response: { data: errorResponse } }));
+      code: 401,
+    };
+    mockedAxios.mockImplementation(() =>
+      Promise.reject({ response: { data: errorResponse } })
+    );
     const action$ = ActionsObservable.of(searchStocks(query, page, token));
     const stateInput$ = new Subject();
     const state$ = new StateObservable<any>(stateInput$, undefined);
@@ -141,11 +148,11 @@ describe('stocksEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: SESSION_TIME_OUT,
-    })
+    });
     restoreMock();
   });
 
@@ -168,12 +175,12 @@ describe('stocksEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: GET_STOCKS_SUCCESS,
-      payload: stocks
-    })
+      payload: stocks,
+    });
     restoreMock();
   });
 
@@ -197,14 +204,14 @@ describe('stocksEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: GET_STOCKS_ERROR,
       payload: {
-        ...errorResponse
-      }
-    })
+        ...errorResponse,
+      },
+    });
     restoreMock();
   });
 
@@ -213,9 +220,11 @@ describe('stocksEpic', () => {
     const errorResponse = {
       type: 'testError',
       description: 'testError',
-      code: 401
-    }
-    mockedAxios.mockImplementation(() => Promise.reject({ response: { data: errorResponse } }));
+      code: 401,
+    };
+    mockedAxios.mockImplementation(() =>
+      Promise.reject({ response: { data: errorResponse } })
+    );
     const action$ = ActionsObservable.of(getStocks(page, token));
     const stateInput$ = new Subject();
     const state$ = new StateObservable<any>(stateInput$, undefined);
@@ -233,11 +242,11 @@ describe('stocksEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: SESSION_TIME_OUT,
-    })
+    });
     restoreMock();
   });
-})
+});

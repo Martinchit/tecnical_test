@@ -69,7 +69,8 @@ export const OrdersBasketTable: React.FC<OrdersBasketTableProps> = ({
                   <TableCell>
                     <Form.Check
                       checked={selected}
-                      onChange={() => onSelectCheckClickHandler(orderId, selected)}
+                      onChange={() =>
+                        onSelectCheckClickHandler(orderId, selected)}
                     />
                   </TableCell>
                   <TableCell>
@@ -83,8 +84,7 @@ export const OrdersBasketTable: React.FC<OrdersBasketTableProps> = ({
                       title={executionMode}
                       disabled={disabledOnSubmittedCondition}
                       onSelect={(optionId) =>
-                        onExecutionModeSelectHandler(i, Number(optionId))
-                      }
+                        onExecutionModeSelectHandler(i, Number(optionId))}
                     />
                   </TableCell>
                   <TableCell>
@@ -97,8 +97,7 @@ export const OrdersBasketTable: React.FC<OrdersBasketTableProps> = ({
                         type="number"
                         aria-describedby={`${id}_${side}_input_append`}
                         onChange={({ target }) =>
-                          onOrderPriceChangeHandler(i, target.value)
-                        }
+                          onOrderPriceChangeHandler(i, target.value)}
                       />
                       <InputGroup.Append id={`${id}_${side}_input_append`}>
                         <InputGroup.Text>{currency}</InputGroup.Text>
@@ -111,8 +110,7 @@ export const OrdersBasketTable: React.FC<OrdersBasketTableProps> = ({
                       value={shareAmount || ''}
                       type="number"
                       onChange={({ target }) =>
-                        onShareAmountChangeHandler(i, target.value)
-                      }
+                        onShareAmountChangeHandler(i, target.value)}
                     />
                   </TableCell>
                 </tr>

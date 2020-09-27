@@ -14,7 +14,10 @@ const mapStateToProps = (state: RootStateType) => ({
   sessionTimeout: state.auth.sessionTimeout,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<ActionsType>, props: OwnProps) => ({
+const mapDispatchToProps = (
+  dispatch: Dispatch<ActionsType>,
+  props: OwnProps
+) => ({
   getStocksAction: (page: number, token: string) =>
     dispatch(actions.getStocks(page - 1, token)),
   searchStocksAction: (query: string, page: number, token: string) =>

@@ -32,7 +32,7 @@ describe('authService', () => {
         url: '/auth/sign_up',
         data: {
           email,
-          password
+          password,
         },
       });
       expect(d).toBe(token);
@@ -58,7 +58,7 @@ describe('authService', () => {
         url: '/auth/log_in',
         data: {
           email,
-          password
+          password,
         },
       });
       expect(d).toBe(token);

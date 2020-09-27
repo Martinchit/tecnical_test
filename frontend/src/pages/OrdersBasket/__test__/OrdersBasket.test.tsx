@@ -4,7 +4,11 @@ import { shallow } from 'enzyme';
 import { OrdersBasket } from '../OrdersBasket';
 import { OrdersBasketHeader } from '../components/header/OrdersBasketHeader';
 import { OrdersBasketTable } from '../components/table/OrdersBasketTable';
-import { OrderSide, OrderStatus, OrderExecutionMode } from '../../../types/types';
+import {
+  OrderSide,
+  OrderStatus,
+  OrderExecutionMode,
+} from '../../../types/types';
 
 describe('OrdersBasket', () => {
   const orderId = '9cc4ca45-b42b-462d-a8aa-931e6041cfcb';
@@ -54,7 +58,11 @@ describe('OrdersBasket', () => {
 
   it('handles onRemoveButtonClickHandler in OrdersBasketHeader', () => {
     const wrapper = shallow(<OrdersBasket {...props} />);
-    wrapper.find(OrdersBasketHeader).first().props().onRemoveButtonClickHandler();
+    wrapper
+      .find(OrdersBasketHeader)
+      .first()
+      .props()
+      .onRemoveButtonClickHandler();
     expect(props.removeStockInOrderAction).toHaveBeenCalled();
     restoreMock();
   });
@@ -113,7 +121,10 @@ describe('OrdersBasket', () => {
       'Market'
     );
     expect(props.updateStockOrderOrderPriceAction).toHaveBeenCalled();
-    expect(props.updateStockOrderOrderPriceAction).toHaveBeenCalledWith(stockIdx, 0);
+    expect(props.updateStockOrderOrderPriceAction).toHaveBeenCalledWith(
+      stockIdx,
+      0
+    );
     restoreMock();
   });
 
@@ -167,7 +178,10 @@ describe('OrdersBasket', () => {
       'Market'
     );
     expect(props.updateStockOrderOrderPriceAction).toHaveBeenCalled();
-    expect(props.updateStockOrderOrderPriceAction).toHaveBeenCalledWith(stockIdx, 0);
+    expect(props.updateStockOrderOrderPriceAction).toHaveBeenCalledWith(
+      stockIdx,
+      0
+    );
     expect(props.updateStockOrderStatusAction).toHaveBeenCalled();
     expect(props.updateStockOrderStatusAction).toHaveBeenCalledWith(
       stockIdx,
@@ -218,7 +232,9 @@ describe('OrdersBasket', () => {
       .props()
       .onCancelButtonClickHandler(stockIdx);
     expect(props.acknowledgeStockOrderErrorAction).toHaveBeenCalled();
-    expect(props.acknowledgeStockOrderErrorAction).toHaveBeenCalledWith(stockIdx);
+    expect(props.acknowledgeStockOrderErrorAction).toHaveBeenCalledWith(
+      stockIdx
+    );
     restoreMock();
   });
 
@@ -231,7 +247,7 @@ describe('OrdersBasket', () => {
 
   it('handles sessionTimeout change', () => {
     const { alert } = window;
-    delete window.alert;
+    // delete window.alert;
     window.alert = jest.fn();
     const wrapper = shallow(<OrdersBasket {...props} />);
     wrapper.setProps({ sessionTimeout: true });

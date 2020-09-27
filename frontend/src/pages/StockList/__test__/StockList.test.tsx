@@ -151,7 +151,10 @@ describe('StockList', () => {
     expect(mockedAxios).toHaveBeenCalledTimes(1);
     await waitForAsync();
     let stockListWrapper = wrapper.instance() as StockList;
-    wrapper.find(StockListHeader).props().onSearchValueChangeHandler(searchValue);
+    wrapper
+      .find(StockListHeader)
+      .props()
+      .onSearchValueChangeHandler(searchValue);
     expect(stockListWrapper.state.searchValue).toBe(searchValue);
     await waitForAsync();
     wrapper.find(StockListHeader).props().onSearchButtonClickHandler();
@@ -181,7 +184,10 @@ describe('StockList', () => {
     wrapper.find(StockListPagination).props().onPaginationButtonClickHandler(2);
     expect(stockListWrapper.state.currentPage).toBe(selectedPage);
     expect(props.getStocksAction).toHaveBeenCalled();
-    expect(props.getStocksAction).toHaveBeenCalledWith(selectedPage, props.token);
+    expect(props.getStocksAction).toHaveBeenCalledWith(
+      selectedPage,
+      props.token
+    );
     restoreMock();
     mockedAxios.mockRestore();
   });
@@ -199,12 +205,16 @@ describe('StockList', () => {
     const wrapper = shallow(<StockList {...props} />);
     expect(mockedAxios).toHaveBeenCalledTimes(1);
     await waitForAsync();
-    wrapper.setState({ stocksFiltered: true, searchValue: 'testSearch' })
+    wrapper.setState({ stocksFiltered: true, searchValue: 'testSearch' });
     const stockListWrapper = wrapper.instance() as StockList;
     wrapper.find(StockListPagination).props().onPaginationButtonClickHandler(2);
     expect(stockListWrapper.state.currentPage).toBe(selectedPage);
     expect(props.searchStocksAction).toHaveBeenCalled();
-    expect(props.searchStocksAction).toHaveBeenCalledWith(stockListWrapper.state.searchValue, selectedPage, props.token);
+    expect(props.searchStocksAction).toHaveBeenCalledWith(
+      stockListWrapper.state.searchValue,
+      selectedPage,
+      props.token
+    );
     restoreMock();
     mockedAxios.mockRestore();
   });
@@ -254,7 +264,7 @@ describe('StockList', () => {
       });
     });
     const { alert } = window;
-    delete window.alert;
+    // delete window.alert;
     window.alert = jest.fn();
     const wrapper = shallow(<StockList {...props} />);
     wrapper.setProps({ sessionTimeout: true });

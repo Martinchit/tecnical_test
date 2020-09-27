@@ -21,7 +21,7 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "redux": "^4.0.5",
     "redux-observable": "^1.2.0",
     "styled-components": "^5.1.0",
@@ -35,7 +35,8 @@
     "test": "jest --collectCoverage",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
-    "format": "prettier --write src/**/*.{ts,tsx} src/**/**/*.{ts,tsx}"
+    "lint-fix": "eslint --fix --ext .js,.jsx,.ts,.tsx src",
+    "format": "prettier --write src/**/*.{ts,tsx,test.ts,test.tsx} src/**/**/*.{ts,tsx,test.ts,test.tsx}"
   },
   "eslintConfig": {
     "extends": "react-app"

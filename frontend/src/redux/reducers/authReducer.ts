@@ -1,5 +1,5 @@
 import { ActionType, getType } from 'typesafe-actions';
-import * as actions from '../actions';
+import { actions } from '../actions';
 import { updateObject } from '../../core/lib/utils/updateObject';
 
 type Action = ActionType<typeof actions>;

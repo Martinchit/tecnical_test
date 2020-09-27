@@ -1,12 +1,19 @@
 import axios, { AxiosStatic } from 'axios';
 import { ActionsObservable, StateObservable } from 'redux-observable';
-import { Subject } from "rxjs";
+import { Subject } from 'rxjs';
 
 import { PostStockOrderEpic } from '../ordersEpic';
 import { placeStockOrder } from '../../actions/ordersActions';
-import { PLACE_STOCK_ORDER_SUCCESS, PLACE_STOCK_ORDER_ERROR } from '../../constants/ordersConstant';
+import {
+  PLACE_STOCK_ORDER_SUCCESS,
+  PLACE_STOCK_ORDER_ERROR,
+} from '../../constants/ordersConstant';
 import { SESSION_TIME_OUT } from '../../constants/authConstant';
-import { OrderSide, OrderStatus, OrderExecutionMode } from '../../../types/types';
+import {
+  OrderSide,
+  OrderStatus,
+  OrderExecutionMode,
+} from '../../../types/types';
 
 interface AxiosMock extends AxiosStatic {
   mockImplementation: Function;
@@ -31,13 +38,13 @@ describe('ordersEpic', () => {
     executionMode: 'Limit' as OrderExecutionMode,
     shareAmount: 100,
     orderPrice,
-    orderId
-  }
+    orderId,
+  };
   const errorResponse = {
     type: 'testError',
     description: 'testError',
-    code: 500
-  }
+    code: 500,
+  };
 
   const mockSuccess = () => {
     mockedAxios.mockImplementation(() => {
@@ -47,15 +54,17 @@ describe('ordersEpic', () => {
         },
       });
     });
-  }
+  };
 
   const mockFail = () => {
-    mockedAxios.mockImplementation(() => Promise.reject({ response: { data: errorResponse } }));
-  }
+    mockedAxios.mockImplementation(() =>
+      Promise.reject({ response: { data: errorResponse } })
+    );
+  };
 
   const restoreMock = () => {
     mockedAxios.mockRestore();
-  }
+  };
   it('handles PostStockOrderEpic success case', async () => {
     mockSuccess();
     const action$ = ActionsObservable.of(placeStockOrder(stockOrder, token));
@@ -80,15 +89,15 @@ describe('ordersEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: PLACE_STOCK_ORDER_SUCCESS,
       payload: {
         orderId,
-        orderPrice 
-      }
-    })
+        orderPrice,
+      },
+    });
     restoreMock();
   });
 
@@ -116,15 +125,15 @@ describe('ordersEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: PLACE_STOCK_ORDER_ERROR,
       payload: {
         orderId,
-        error: { type: 'testError', description: 'testError', code: 500 }
-      }
-    })
+        error: { type: 'testError', description: 'testError', code: 500 },
+      },
+    });
     restoreMock();
   });
 
@@ -132,9 +141,11 @@ describe('ordersEpic', () => {
     const errorResponse = {
       type: 'testError',
       description: 'testError',
-      code: 401
-    }
-    mockedAxios.mockImplementation(() => Promise.reject({ response: { data: errorResponse } }));
+      code: 401,
+    };
+    mockedAxios.mockImplementation(() =>
+      Promise.reject({ response: { data: errorResponse } })
+    );
     const action$ = ActionsObservable.of(placeStockOrder(stockOrder, token));
     const stateInput$ = new Subject();
     const state$ = new StateObservable<any>(stateInput$, undefined);
@@ -157,11 +168,11 @@ describe('ordersEpic', () => {
       },
       headers: {
         Authorization: `Bearer ${token}`,
-      }
-    })
+      },
+    });
     expect(result).toStrictEqual({
       type: SESSION_TIME_OUT,
-    })
+    });
     restoreMock();
   });
-})
+});

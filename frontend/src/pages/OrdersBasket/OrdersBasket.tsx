@@ -19,8 +19,14 @@ interface OrdersBasketProps {
     stockIdx: number,
     executionMode: OrderExecutionMode
   ) => void;
-  updateStockOrderOrderPriceAction: (stockIdx: number, orderPrice: number) => void;
-  updateStockOrderShareAmountAction: (stockIdx: number, shareAmount: number) => void;
+  updateStockOrderOrderPriceAction: (
+    stockIdx: number,
+    orderPrice: number
+  ) => void;
+  updateStockOrderShareAmountAction: (
+    stockIdx: number,
+    shareAmount: number
+  ) => void;
   updateStockOrderStatusAction: (stockIdx: number, status: OrderStatus) => void;
   placeStockOrderAction: (stockOrder: StockOrder, token: string) => void;
   acknowledgeStockOrderErrorAction: (stockIdx: number) => void;
@@ -31,8 +37,8 @@ interface OrdersBasketProps {
 }
 
 export class OrdersBasket extends React.Component<
-  OrdersBasketProps,
-  OrdersBasketState
+OrdersBasketProps,
+OrdersBasketState
 > {
   componentDidUpdate = () => {
     const { sessionTimeout, logOutAction } = this.props;
@@ -41,6 +47,7 @@ export class OrdersBasket extends React.Component<
       logOutAction();
     }
   };
+
   onRemoveButtonClickHandler = () => {
     const { removeStockInOrderAction } = this.props;
     removeStockInOrderAction();
@@ -101,7 +108,13 @@ export class OrdersBasket extends React.Component<
     const converted = Number(orderPrice);
     updateStockOrderOrderPriceAction(stockIdx, converted);
     if (currency && bloombergTickerLocal) {
-      this.checkOrderStatus(executionMode, shareAmount, converted, status, stockIdx);
+      this.checkOrderStatus(
+        executionMode,
+        shareAmount,
+        converted,
+        status,
+        stockIdx
+      );
     }
   };
 
@@ -117,7 +130,13 @@ export class OrdersBasket extends React.Component<
     const converted = Number(shareAmount);
     updateStockOrderShareAmountAction(stockIdx, converted);
     if (currency && bloombergTickerLocal) {
-      this.checkOrderStatus(executionMode, converted, orderPrice, status, stockIdx);
+      this.checkOrderStatus(
+        executionMode,
+        converted,
+        orderPrice,
+        status,
+        stockIdx
+      );
     }
   };
 
@@ -131,7 +150,10 @@ export class OrdersBasket extends React.Component<
     const validSA = this.isValidShareAmount(sA);
     const validOP = this.isValidOrderPrice(oP);
     if (s === 'Not Ready') {
-      if ((eM === 'Market' && validSA) || (eM === 'Limit' && validSA && validOP)) {
+      if (
+        (eM === 'Market' && validSA) ||
+        (eM === 'Limit' && validSA && validOP)
+      ) {
         this.updateOrderStatus(id, 'Ready');
       }
     }
@@ -162,7 +184,8 @@ export class OrdersBasket extends React.Component<
     const isSelectedOrdersEmpty = selectedOrders.length === 0;
     const isInvalidOrderExisted =
       selectedOrders.filter(
-        ({ status }) => status === 'Not Ready' || status === 'Booked'
+        ({ status }) =>
+          status === 'Not Ready' || status === 'Booked' || status === 'Rejected'
       ).length > 0;
     return (
       <FlexBox>

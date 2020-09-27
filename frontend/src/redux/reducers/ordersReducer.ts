@@ -1,5 +1,5 @@
 import { ActionType, getType } from 'typesafe-actions';
-import * as actions from '../actions';
+import { actions } from '../actions';
 import { StockOrder } from '../../types/types';
 import { updateObject } from '../../core/lib/utils/updateObject';
 
@@ -19,7 +19,9 @@ export const ordersReducer = (
 ): OrdersState => {
   switch (action.type) {
     case getType(actions.addStockInOrder):
-      return updateObject(state, { orders: state.orders.concat(action.payload) });
+      return updateObject(state, {
+        orders: state.orders.concat(action.payload),
+      });
     case getType(actions.removeStockInOrder):
       return updateObject(state, {
         orders: state.orders.filter(({ selected }) => !selected),
@@ -27,13 +29,13 @@ export const ordersReducer = (
     case getType(actions.selectStockInOrder):
       return updateObject(state, {
         orders: state.orders.map((o) =>
-          o['orderId'] === action.payload ? { ...o, selected: true } : o
+          o.orderId === action.payload ? { ...o, selected: true } : o
         ),
       });
     case getType(actions.unselectStockInOrder):
       return updateObject(state, {
         orders: state.orders.map((o) =>
-          o['orderId'] === action.payload ? { ...o, selected: false } : o
+          o.orderId === action.payload ? { ...o, selected: false } : o
         ),
       });
     case getType(actions.updateStockOrderStatus):
@@ -69,19 +71,19 @@ export const ordersReducer = (
     case getType(actions.placeStockOrder):
       return updateObject(state, {
         orders: state.orders.map((o) =>
-          o['selected']
+          o.selected
             ? {
-                ...o,
-                status: 'In Progress',
-                selected: false,
-              }
+              ...o,
+              status: 'In Progress',
+              selected: false,
+            }
             : o
         ),
       });
     case getType(actions.placeStockOrderSuccess):
       return updateObject(state, {
         orders: state.orders.map((o) =>
-          o['orderId'] === action.payload.orderId
+          o.orderId === action.payload.orderId
             ? { ...o, status: 'Booked', orderPrice: action.payload.orderPrice }
             : o
         ),
@@ -89,12 +91,12 @@ export const ordersReducer = (
     case getType(actions.placeStockOrderError):
       return updateObject(state, {
         orders: state.orders.map((o) =>
-          o['orderId'] === action.payload.orderId
+          o.orderId === action.payload.orderId
             ? {
-                ...o,
-                status: 'Rejected',
-                error: `${action.payload.error.type} - ${action.payload.error.description}`,
-              }
+              ...o,
+              status: 'Rejected',
+              error: `${action.payload.error.type} - ${action.payload.error.description}`,
+            }
             : o
         ),
       });

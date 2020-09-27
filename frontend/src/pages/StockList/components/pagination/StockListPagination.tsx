@@ -14,7 +14,8 @@ export const StockListPagination: React.FC<StockListPaginationProps> = ({
 }) => {
   const ref = currentPage + 1 >= totalPages ? totalPages - currentPage + 3 : 5;
   const ellipsisMin = currentPage - 5 < 1 ? 1 : currentPage - 5;
-  const ellipsisMax = currentPage + 5 > totalPages ? totalPages : currentPage + 5;
+  const ellipsisMax =
+    currentPage + 5 > totalPages ? totalPages : currentPage + 5;
   return (
     <Pagination>
       <Pagination.First onClick={() => onPaginationButtonClickHandler(1)} />
@@ -30,29 +31,29 @@ export const StockListPagination: React.FC<StockListPaginationProps> = ({
       ) : null}
       {totalPages > 4
         ? [...Array(ref)].map((_, i) => {
-            const p = currentPage < 3 ? 1 + i : currentPage + (-2 + i);
-            return (
-              <Pagination.Item
-                onClick={() => onPaginationButtonClickHandler(p)}
-                key={p}
-                active={currentPage === p}
-              >
-                {p}
-              </Pagination.Item>
-            );
-          })
+          const p = currentPage < 3 ? 1 + i : currentPage + (-2 + i);
+          return (
+            <Pagination.Item
+              onClick={() => onPaginationButtonClickHandler(p)}
+              key={p}
+              active={currentPage === p}
+            >
+              {p}
+            </Pagination.Item>
+          );
+        })
         : [...Array(totalPages)].map((_, i) => {
-            const p = currentPage < 3 ? 1 + i : currentPage + (-2 + i);
-            return (
-              <Pagination.Item
-                onClick={() => onPaginationButtonClickHandler(p)}
-                key={p}
-                active={currentPage === p}
-              >
-                {p}
-              </Pagination.Item>
-            );
-          })}
+          const p = currentPage < 3 ? 1 + i : currentPage + (-2 + i);
+          return (
+            <Pagination.Item
+              onClick={() => onPaginationButtonClickHandler(p)}
+              key={p}
+              active={currentPage === p}
+            >
+              {p}
+            </Pagination.Item>
+          );
+        })}
       {currentPage < totalPages - 2 && totalPages > 5 ? (
         <>
           <Pagination.Ellipsis
@@ -65,7 +66,9 @@ export const StockListPagination: React.FC<StockListPaginationProps> = ({
           </Pagination.Item>
         </>
       ) : null}
-      <Pagination.Last onClick={() => onPaginationButtonClickHandler(totalPages)} />
+      <Pagination.Last
+        onClick={() => onPaginationButtonClickHandler(totalPages)}
+      />
     </Pagination>
   );
 };

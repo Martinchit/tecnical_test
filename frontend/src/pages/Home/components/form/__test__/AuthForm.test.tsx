@@ -68,7 +68,9 @@ describe('AuthForm', () => {
     const p = { ...props, authError: 'TestError' };
     const wrapper = shallow(<AuthForm {...p} />);
     expect(wrapper.find(Alert).length).toBe(1);
-    expect(wrapper.find(Alert).text()).toBe(`${p.authType} Error: ${p.authError}`);
+    expect(wrapper.find(Alert).text()).toBe(
+      `${p.authType} Error: ${p.authError}`
+    );
   });
 
   it('renders ErrorMessage', () => {

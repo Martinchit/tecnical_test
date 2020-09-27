@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import HomePage from './pages/Home/HomePage';

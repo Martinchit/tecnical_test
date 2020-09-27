@@ -18,7 +18,10 @@ export const NavBar: React.FC<Props> = ({ loggedIn, logOutAction }) => (
     {loggedIn ? (
       <>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="justify-content-end"
+        >
           <Nav defaultActiveKey={window.location.href.split('/').reverse()[0]}>
             <Nav.Link as={Link} to="/stock_list" eventKey="stock_list">
               Stock Lists

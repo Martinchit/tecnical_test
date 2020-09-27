@@ -1,6 +1,6 @@
 import axios, { AxiosStatic } from 'axios';
 import { ActionsObservable, StateObservable } from 'redux-observable';
-import { Subject } from "rxjs";
+import { Subject } from 'rxjs';
 
 import { SignUpEpic, LogInEpic } from '../authEpic';
 import { signUp, logIn } from '../../actions/authActions';
@@ -22,8 +22,8 @@ describe('ordersEpic', () => {
   const errorResponse = {
     type: 'testError',
     description: 'testError',
-    code: 400
-  }
+    code: 400,
+  };
 
   const mockSuccess = () => {
     mockedAxios.mockImplementation(() => {
@@ -33,15 +33,17 @@ describe('ordersEpic', () => {
         },
       });
     });
-  }
+  };
 
   const mockFail = () => {
-    mockedAxios.mockImplementation(() => Promise.reject({ response: { data: errorResponse } }));
-  }
+    mockedAxios.mockImplementation(() =>
+      Promise.reject({ response: { data: errorResponse } })
+    );
+  };
 
   const restoreMock = () => {
     mockedAxios.mockRestore();
-  }
+  };
   it('handles auth success case in SignUpEpic', async () => {
     mockSuccess();
     const action$ = ActionsObservable.of(signUp(email, password));
@@ -58,13 +60,13 @@ describe('ordersEpic', () => {
       url: '/auth/sign_up',
       data: {
         email,
-        password
+        password,
       },
-    })
+    });
     expect(result).toStrictEqual({
       type: AUTH_SUCCESS,
-      payload: token
-    })
+      payload: token,
+    });
     restoreMock();
   });
 
@@ -84,13 +86,13 @@ describe('ordersEpic', () => {
       url: '/auth/sign_up',
       data: {
         email,
-        password
+        password,
       },
-    })
+    });
     expect(result).toStrictEqual({
       type: AUTH_ERROR,
-      payload: errorResponse
-    })
+      payload: errorResponse,
+    });
     restoreMock();
   });
 
@@ -110,13 +112,13 @@ describe('ordersEpic', () => {
       url: '/auth/log_in',
       data: {
         email,
-        password
+        password,
       },
-    })
+    });
     expect(result).toStrictEqual({
       type: AUTH_SUCCESS,
-      payload: token
-    })
+      payload: token,
+    });
     restoreMock();
   });
 
@@ -136,13 +138,13 @@ describe('ordersEpic', () => {
       url: '/auth/log_in',
       data: {
         email,
-        password
+        password,
       },
-    })
+    });
     expect(result).toStrictEqual({
       type: AUTH_ERROR,
-      payload: errorResponse
-    })
+      payload: errorResponse,
+    });
     restoreMock();
   });
-})
+});
