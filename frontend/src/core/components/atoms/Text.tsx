@@ -10,7 +10,7 @@ export interface TextProps {
 
 const getFontSize = (props) => () => {
   const { fontSize } = props;
-  return fontSize ? `${fontSize}em` : '1em';
+  return `${fontSize ?? 1}em`;
 };
 
 const getFontWeight = (props) => () => {
